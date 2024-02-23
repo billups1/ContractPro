@@ -38,7 +38,7 @@ logging:
     com.example.log: debug
 
 file:
-  path: C:/workspace/lessonReserve/upload/
+  path: C:/workspace/contractPro/upload/
 
 payment:
   iamport:
