@@ -1,4 +1,4 @@
-package com.hs.ContractPro.domain;
+package com.hs.ContractPro.domain.externalParty;
 
 import com.hs.ContractPro.common.BaseTimeEntity;
 import jakarta.persistence.*;
@@ -13,28 +13,28 @@ public class ExternalParty extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(nullable = false)
     private Long id;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(name = "name")
-    private String name;
+    @Column(nullable = false)
+    private String phone;
 
-    @Column(name = "profile_image_url")
-    private String profileImageUrl;
+    @Column(nullable = false)
+    private String name;
 
     @Column(name = "bio")
     private String bio;
 
     @Column(name = "type", nullable = false)
     @Enumerated(value = EnumType.STRING)
-    private ENTITY_TYPE type;
+    private TYPE type;
 
     private String companyRegistrationNumber;
 
-    public enum ENTITY_TYPE { // 법인격 종류 : 사람, 회사, 개인사업자
+    public enum TYPE { // 법인격 종류 : 사람, 회사, 개인사업자
         PERSON, COMPANY, SOLE_PROPRIETOR
     }
 

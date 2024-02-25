@@ -27,9 +27,7 @@ public class User extends BaseTimeEntity {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "team")
     @ManyToOne
-    @JoinColumn(name = "team_id")
     private Team team;
 
     @Column(name = "password", nullable = false)

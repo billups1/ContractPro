@@ -10,7 +10,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @AllArgsConstructor
-@Entity(name = "contracts")
+@Entity(name = "storageFiles")
 public class StorageFile {
 
     @Id
@@ -54,12 +54,6 @@ public class StorageFile {
         return storageFile;
     }
 
-
-    /**
-     * s3 오브젝트 식별 키값은 저장된전체경로이름포함 값이다.
-     *
-     * @return
-     */
     public String getKey() {
         return savedFullPathName;
     }

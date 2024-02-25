@@ -1,6 +1,7 @@
-package com.hs.ContractPro.domain;
+package com.hs.ContractPro.domain.contract;
 
 import com.hs.ContractPro.common.BaseTimeEntity;
+import com.hs.ContractPro.domain.team.Team;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @AllArgsConstructor
-@Entity(name = "contractCategories")
+@Entity(name = "ContractCategories")
 public class ContractCategory extends BaseTimeEntity {
 
     @Id
@@ -16,5 +17,13 @@ public class ContractCategory extends BaseTimeEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String categoryName;
+    @OneToOne(mappedBy = "contractCategory")
+    private Contract contract;
+
+    @OneToOne(mappedBy = "contractCategory")
+    private Category category;
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
+    }
 }

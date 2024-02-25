@@ -1,7 +1,6 @@
 package com.hs.ContractPro.domain.contract;
 
 import com.hs.ContractPro.common.BaseTimeEntity;
-import com.hs.ContractPro.domain.ContractCategory;
 import com.hs.ContractPro.domain.storage.StorageFile;
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,8 +26,7 @@ public class Contract extends BaseTimeEntity {
     @Column(name = "content_summary")
     private String contentSummary;
 
-    @Column(name = "contract_category")
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "contract_category_id")
     private ContractCategory contractCategory;
 
@@ -38,14 +36,14 @@ public class Contract extends BaseTimeEntity {
     private List<ContractTeam> contractTeams;
 
     @Column(name = "contract_date")
-    private LocalDateTime contractDate;
+    private LocalDateTime contractSealDate;
     @Column(name = "contract_effective_date")
     private LocalDateTime contractEffectiveDate;
     @Column(name = "contract_end_date")
     private LocalDateTime contractEndDate;
 
     @OneToMany(mappedBy = "contract",fetch = FetchType.LAZY)
-    private StorageFile storageFile;
+    private List<StorageFile> storageFiles;
 
     private CONTRACT_METHOD contractMethod;
 
@@ -53,4 +51,7 @@ public class Contract extends BaseTimeEntity {
         PAPER, ELECTRIC
     }
 
+    public void setContractCategory(ContractCategory contractCategory) {
+        this.contractCategory = contractCategory;
+    }
 }

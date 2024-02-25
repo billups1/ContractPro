@@ -23,7 +23,6 @@ public class Team extends BaseTimeEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "members")
     @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
     private List<User> members;
 

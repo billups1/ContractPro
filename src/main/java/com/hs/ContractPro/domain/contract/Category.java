@@ -1,28 +1,26 @@
 package com.hs.ContractPro.domain.contract;
 
 import com.hs.ContractPro.common.BaseTimeEntity;
-import com.hs.ContractPro.domain.user.User;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @AllArgsConstructor
-@Entity(name = "ContractUsers")
-public class ContractUser extends BaseTimeEntity {
+@Entity(name = "categories")
+public class Category extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "contract_id")
-    private Contract contract;
+    @OneToOne
+    @JoinColumn(name = "contract_category_id")
+    private ContractCategory contractCategory;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
+    private String categoryName;
 }

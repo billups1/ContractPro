@@ -5,7 +5,7 @@ import com.hs.ContractPro.domain.user.User;
 import jakarta.validation.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
-public record UserJoinRequest(
+public record UserCreateRequest(
         Long teamId,
         @NotEmpty
         String name,
