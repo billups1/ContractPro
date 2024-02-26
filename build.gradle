@@ -40,6 +40,14 @@ dependencies {
 	implementation('io.awspring.cloud:spring-cloud-starter-aws')
 	implementation platform("io.awspring.cloud:spring-cloud-aws-dependencies:2.4.4")
 
+	// SpringSecurity
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.1.5'
+
+	// jwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
+
 }
 
 tasks.named('bootBuildImage') {

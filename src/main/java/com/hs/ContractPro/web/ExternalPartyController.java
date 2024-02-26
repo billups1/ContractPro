@@ -1,10 +1,8 @@
 package com.hs.ContractPro.web;
 
 import com.hs.ContractPro.service.ExternalPartyService;
-import com.hs.ContractPro.service.UserService;
 import com.hs.ContractPro.web.common.dto.ApiResponse;
 import com.hs.ContractPro.web.dto.ExternalPartyCreateRequest;
-import com.hs.ContractPro.web.dto.UserCreateRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

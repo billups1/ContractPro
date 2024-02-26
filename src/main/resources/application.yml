@@ -37,8 +37,6 @@ logging:
   level:
     com.example.log: debug
 
-file:
-  path: C:/workspace/contractPro/upload/
 
 payment:
   iamport:
@@ -46,4 +44,5 @@ payment:
     secretKey: ${iamport.apiSecret}
 
 
-
+jwt:
+  secret: asd

@@ -1,4 +1,4 @@
-package com.hs.ContractPro.web.dto;
+package com.hs.ContractPro.web.auth.dto;
 
 import com.hs.ContractPro.domain.team.Team;
 import com.hs.ContractPro.domain.user.User;
@@ -18,12 +18,12 @@ public record UserCreateRequest(
         MultipartFile profileImage
 
 ) {
-        public User create(Team team, String profileImageUrl) {
+        public User create(Team team, String profileImageUrl, String encodedPassword) {
                 return User.builder()
                         .loginId(loginId)
                         .email(email)
                         .team(team)
-                        .password(password)
+                        .password(encodedPassword)
                         .name(name)
                         .profileImageUrl(profileImageUrl)
                         .build();
