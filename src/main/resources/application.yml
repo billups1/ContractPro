@@ -10,7 +10,7 @@
 spring:
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:contractPro;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
     username: sa
     password:
     sql-script-encoding: utf-8
@@ -18,7 +18,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create #update #create
+      ddl-auto: update #update #create
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
@@ -45,4 +45,4 @@ payment:
 
 
 jwt:
-  secret: asd
+  secret: bFYyb3E5bGtZeUNsZUtoUFltc01PYVBmNE44eUh0U1h2cnIzdlVsdEJ1ZmxmVzBsTEE3N0dTTEpRMGFHUjhaRjRWWmhpNko2WkJEcGJycTAK

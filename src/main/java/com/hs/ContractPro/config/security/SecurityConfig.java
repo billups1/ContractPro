@@ -21,7 +21,7 @@ public class SecurityConfig {
     private final CorsConfig corsConfig;
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -29,6 +29,11 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.csrf(AbstractHttpConfigurer::disable);
+
+        http.authorizeHttpRequests(auth ->
+                auth
+                        .anyRequest().permitAll()
+        );
 
         http.sessionManagement(httpSecuritySessionManagementConfigurer ->
                         httpSecuritySessionManagementConfigurer

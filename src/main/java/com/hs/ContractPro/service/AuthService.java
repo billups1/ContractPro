@@ -35,13 +35,18 @@ public class AuthService {
     @Transactional
     public SignUpView create(UserCreateRequest request) {
 
-        Team team = teamJpaRepository.findById(request.teamId()).orElseThrow(() -> {
-            throw new CustomException("없는 팀입니다.");
-        });
+        Team team = null;
+
+        if (request.teamId() != null) {
+            team = teamJpaRepository.findById(request.teamId()).orElseThrow(() -> {
+                throw new CustomException("없는 팀입니다.");
+            });
+        }
 
         return SignUpView.from(userJpaRepository.save(request.create(team, null, bCryptPasswordEncoder.encode(request.password()))), null);
     }
 
+    @Transactional
     public TokenDto login(LoginRequest request) {
         UsernamePasswordAuthenticationToken authenticationToken = request.toAuthentication();
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
@@ -55,6 +60,7 @@ public class AuthService {
         return tokenDto;
     }
 
+    @Transactional
     public TokenDto reissue(TokenRequest request) {
         // 1. Refresh Token 검증
         if (!tokenProvider.validateToken(request.refreshToken())) {

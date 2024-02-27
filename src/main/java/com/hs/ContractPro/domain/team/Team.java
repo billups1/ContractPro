@@ -29,5 +29,13 @@ public class Team extends BaseTimeEntity {
     @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
     private List<ContractTeam> contractTeams;
 
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team; // 상위본부
+
+    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
+    private List<Team> teams;
+
+
 
 }

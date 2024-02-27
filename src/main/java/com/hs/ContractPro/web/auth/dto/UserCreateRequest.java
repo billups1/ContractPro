@@ -26,6 +26,7 @@ public record UserCreateRequest(
                         .password(encodedPassword)
                         .name(name)
                         .profileImageUrl(profileImageUrl)
+                        .role(User.ROLE.MEMBER)
                         .build();
         }
 }
